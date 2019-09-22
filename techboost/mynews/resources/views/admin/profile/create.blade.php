@@ -22,14 +22,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="gender">性別(gender)</label>
+                        <label class="col-md-2 form-group-sm" for="gender">性別(gender)</label>
                         <div class="col-md-10">
-                            {{-- Form::select('gender', ['男性', '女性'], null, ['class' => 'form-control']) --}}
-                            <select class="form-control" name="gender" value="{{ old('gender') }}">
-                                <option value="">選択してください</option>
-                                <option value="male">男性</option>
-                                <option value="female">女性</option>
-                            </select>
+                            {{ Form::select('gender', ['' => '選択してください', 'male' => '男性', 'female' => '女性'], null, ['class' => 'form-control']) }}
                         </div>
                     </div>
                     <div class="form-group row">
