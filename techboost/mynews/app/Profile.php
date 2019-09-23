@@ -10,6 +10,7 @@ class Profile extends Model
 
     // 以下を追記
     public static $rules = array(
+        //'user_id' => 'required|unique:users',
         'name' => 'required',
         'gender' => 'required',
         'hobby' => 'required',
