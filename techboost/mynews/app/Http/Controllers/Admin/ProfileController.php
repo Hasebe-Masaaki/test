@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 // 以下を追記することでProfile Modelが扱えるようになる
 use App\Profile;
+use App\ProfileHistory;
+use Carbon\Carbon;
 use Auth;
 
 class ProfileController extends Controller
@@ -62,6 +64,12 @@ class ProfileController extends Controller
 
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
+
+        // 編集履歴を更新
+        $history = new ProfileHistory;
+        $history->user_id = $profile->user_id;
+        $history->edited_at = Carbon::now();
+        $history->save();
 
         return redirect('admin/profile/edit');
     }
