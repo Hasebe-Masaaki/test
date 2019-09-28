@@ -62,6 +62,9 @@ class ProfileController extends Controller
 
         unset($profile_form['_token']);
 
+        \Debugbar::info($profile);
+        \Debugbar::info($profile_form);
+
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
 
